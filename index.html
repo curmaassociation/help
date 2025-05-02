@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CURMA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURMA Association</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.png"alt="Logo">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CURMA Logo" />
-            </div>
-            <div>
-                <h1>CURMA</h1>
-                <p>Central University of Rajasthan Malayali Association</p>
-            </div>
-            <nav>
-                <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-                <ul id="nav-links">
-                  <li><a href="{{ url_for('index') }}">Home</a></li>
-                  <li><a href="{{ url_for('about') }}">About Us</a></li>
-                  <li><a href="{{ url_for('events') }}">Events</a></li>
-                  <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
-                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                  <li><a href="{{ url_for('helpdesk') }}">Helpdesk</a></li>
-                </ul>
-              </nav>
-              
-        </div>
+        <img src="logo.png" alt="CURMA Logo" id="logo">
+        <h1>CURMA Association</h1>
+        <nav>
+            <ul>
+                 <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 <section class="helpdesk">
   <div class="container">
