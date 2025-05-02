@@ -157,6 +157,35 @@ a:hover {
 /* ================
    HEADER & NAV
    ================ */
+header .logo img {
+    width: 100px; /* Match footer logo size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80px; /* Optional: limit height if needed */
+}
+
+/* Remove the previous logo styles and replace with these */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.logo p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+
+/* ================
+   HEADER & NAV
+   ================ */
 header {
     background-color: var(--white);
     box-shadow: var(--shadow);
