@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}CURMA{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CURMA Logo" />
+            </div>
+            <div>
+                <h1>CURMA</h1>
+                <p>Central University of Rajasthan Malayali Association</p>
+            </div>
+            <nav>
+                <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+                <ul id="nav-links">
+                  <li><a href="{{ url_for('index') }}">Home</a></li>
+                  <li><a href="{{ url_for('about') }}">About Us</a></li>
+                  <li><a href="{{ url_for('events') }}">Events</a></li>
+                  <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                  <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                  <li><a href="{{ url_for('helpdesk') }}">Helpdesk</a></li>
+                </ul>
+              </nav>
+              
+        </div>
+    </header>
+<section class="helpdesk">
+  <div class="container">
+    <h2>Student Helpdesk</h2>
+    <p class="subtitle">Find helpful resources and FAQs to assist you at CURAJ</p>
+    
+    <div class="faq-grid">
+      <a href="#about-university" class="faq-item card">
+        <h3>🏛 About the University</h3>
+        <p>Learn about CURAJ's campus, location, and facilities</p>
+      </a>
+      <a href="#how-to-reach" class="faq-item card">
+        <h3>📍 How to Reach</h3>
+        <p>Travel directions to campus</p>
+      </a>
+      
+      <a href="#admission-process" class="faq-item card">
+        <h3>📄 Admission Process</h3>
+        <p>Application procedures and requirements</p>
+      </a>
+
+      <a href="#departments" class="faq-item card">
+        <h3>📚 Schools & Departments</h3>
+        <p>Explore all academic departments</p>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<section id="about-university" class="section-block">
+  <div class="container">
+    <div class="about-section">
+      <div class="about-text">
+        <h2>About The University</h2>
+        <p>Central University of Rajasthan (CURAJ) is a central university located in Ajmer, Rajasthan, India, established in 2009 by an Act of Parliament. CURAJ has 12 schools encompassing 36 academic departments offering various undergraduate, postgraduate and doctoral programs.</p>
+        <p>The university is located on the Jaipur-Ajmer Expressway (NH-8), approximately 83 kilometers from Jaipur and 40 kilometers from Ajmer. The campus spans more than 209 hectares (518 acres) of land with state-of-the-art infrastructure.</p>
+        <p>CURAJ follows the semester system and has adopted the Choice Based Credit System (CBCS) as per UGC guidelines. The university emphasizes interdisciplinary research and innovation.</p>
+      </div>
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='images/CURAJ.jpg') }}" alt="CURAJ Campus" class="featured-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-reach" class="section-block bg-light">
+  <div class="container">
+    <h2 class="section-title">How to Reach CURAJ</h2>
+    
+    <div class="travel-options">
+      <div class="option">
+        <h4><i class="fas fa-plane"></i> By Air</h4>
+        <p><strong>Nearest Airport:</strong> Jaipur International Airport (JAI) - 85 km</p>
+        <p>From Jaipur airport, take a taxi to Sindri Bandar (₹1500-2000) or take a bus to Jaipur Bus Stand and then a bus to Bandar Sindri (₹100). From Bandar Sindri, take an auto to university (₹50-100).</p>
+      </div>
+      
+      <div class="option">
+        <h4><i class="fas fa-train"></i> By Train (Option 1)</h4>
+        <p><strong>Direct Train:</strong> Marusagar Express from Ernakulam to Ajmer (Weekly)</p>
+        <p>From Ajmer Junction, take a share taxi to Bus Stand (₹20), then bus to Bandar Sindri (₹50). Autos available from Bandar Sindri to campus.</p>
+      </div>
+      
+      <div class="option">
+        <h4><i class="fas fa-train"></i> By Train (Option 2)</h4>
+        <p><strong>Connecting Trains:</strong> Via Kota, Ahmedabad or Marwar Junction</p>
+        <p>Take any train to these stations, then connect to Ajmer. Follow directions from Ajmer as above.</p>
+      </div>
+      
+      <div class="option">
+        <h4><i class="fas fa-bus"></i> By Road</h4>
+        <p><strong>From Jaipur:</strong> Buses available from Sindhi Camp Bus Stand to Bandar Sindri (every 30 mins)</p>
+        <p><strong>From Ajmer:</strong> Regular buses to Bandar Sindri (30-40 mins journey)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="admission-process" class="section-block">
+  <div class="container">
+    <h2 class="section-title">Admission Process</h2>
+    
+    <div class="admission-content">
+      <div class="forms-section">
+        <div class="container">
+        <h3>Admission Forms</h3>
+        <div class="form-buttons">
+          <a href="#" class="btn" target="_blank">Undergraduate Application</a>
+          <a href="https://curajadm.samarth.edu.in/" class="btn" target="_blank">Postgraduate Application</a>
+          <a href="#" class="btn" target="_blank">PhD Application</a>
+          <a href="https://www.antiragging.in/affidavit_university_form.php" class="btn" target="_blank">Apply Online For anti-ragging</a>
+          <a href="https://curaj.ac.in/sites/default/files/UNDERTAKING%20FORM-%20%28To%20be%20submitted%20in%20case%20the%20candidate%20do%20not%20have%20any%20document%28s%29%20at%20the%20time%20of%20filling%20the%20registration%20form%29_0.pdf" class="btn" target="_blank">Under Taking Form</a>
+        </div>
+        </div>
+      </div>
+      
+      <div class="requirements-section">
+        <h3>Admission Requirements</h3>
+        <div class="requirements-grid">
+          <div class="req-card">
+            <h4>Documents Needed</h4>
+            <ul>
+              <li>10th and 12th mark sheets and certificates</li>
+              <li>Graduation marksheets (for PG courses)</li>
+              <li>Transfer Certificate</li>
+              <li>Migration Certificate (if applicable)</li>
+              <li>Caste Certificate (if applicable)</li>
+              <li>Income Certificate (for scholarship)</li>
+              <li>Passport size photographs- 3</li>
+              <li>Valid ID proof (Aadhar, Passport, etc.)</li>
+              <li>Medical Certificate ( govt. approved )</li>
+              <li>Category Certificate (NCL)-(if applicable)</li>
+              <li>Gap Certificate (if applicable) </li> 
+              <li>CUET ScoreCard</li>
+            </ul>
+          </div>
+          
+          <div class="req-card">
+            <h4>Admission Process</h4>
+            <ol>
+              <li>Check eligibility criteria for desired course</li>
+              <li>Fill out the application form before deadline</li>
+              <li>Pay application fee</li>
+              <li>Appear for entrance exam (if applicable)</li>
+              <li>Check merit list/cutoff</li>
+              <li>Complete document verification</li>
+              <li>Pay admission fees</li>
+              <li>Complete registration process</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="departments" class="section-block bg-light">
+  <div class="container">
+    <h2 class="section-title">Schools & Departments</h2>
+    
+    <div class="schools-container">
+      <!-- School 1 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Mathematics, Statistics & Computational Sciences</h3>
+        <div class="departments">
+          <button class="dept-btn">Mathematics</button>
+          <button class="dept-btn">Statistics</button>
+          <button class="dept-btn">Computer Science</button>
+        </div>
+      </div>
+      
+      <!-- School 2 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Chemical Sciences & Pharmacy</h3>
+        <div class="departments">
+          <button class="dept-btn">Chemistry</button>
+          <button class="dept-btn">Pharmacy</button>
+        </div>
+      </div>
+      
+      <!-- School 3 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Humanities & Languages</h3>
+        <div class="departments">
+          <button class="dept-btn">English</button>
+          <button class="dept-btn">Hindi</button>
+          <button class="dept-btn">History</button>
+          <button class="dept-btn">Economics</button>
+        </div>
+      </div>
+      
+      <!-- School 4 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Engineering & Technology</h3>
+        <div class="departments">
+          <button class="dept-btn">Electrical Engineering</button>
+          <button class="dept-btn">Mechanical Engineering</button>
+        </div>
+      </div>
+      
+      <!-- School 5 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Life Sciences</h3>
+        <div class="departments">
+          <button class="dept-btn">Biotechnology</button>
+          <button class="dept-btn">Microbiology</button>
+          <button class="dept-btn">Environmental Science</button>
+        </div>
+      </div>
+      
+      <!-- School 6 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Physical Sciences</h3>
+        <div class="departments">
+          <button class="dept-btn">Physics</button>
+          <button class="dept-btn">Earth Sciences</button>
+        </div>
+      </div>
+      
+      <!-- School 7 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Commerce & Management</h3>
+        <div class="departments">
+          <button class="dept-btn">Commerce</button>
+          <button class="dept-btn">Business Administration</button>
+        </div>
+      </div>
+      
+      <!-- School 8 -->
+      <div class="school-card">
+        <h3 class="school-header">School of Social Sciences</h3>
+        <div class="departments">
+          <button class="dept-btn">Sociology</button>
+          <button class="dept-btn">Political Science</button>
+          <button class="dept-btn">Psychology</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+        <div class="container footer-container">
+            <div class="footer-section logo-section">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CURMA Logo" class="footer-logo">
+                <p>Central University of Rajasthan<br>
+                   Malayali Association</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('events') }}">Events</a></li>
+                    <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('helpdesk') }}">Helpdesk</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-media">
+                    <a href="mailto:curma.curaj@gmail.com"><img src="{{ url_for('static', filename='assets/icons/email.png') }}" alt="Email Icon"></a>
+                    <a href="https://www.instagram.com/curma_curaj" target="_blank"><img src="{{ url_for('static', filename='assets/icons/instagram.png') }}" alt="Instagram Icon"></a>
+                    <a href="https://www.facebook.com/curmacuraj" target="_blank"><img src="{{ url_for('static', filename='assets/icons/facebook.png') }}" alt="Facebook Icon"></a>
+                    <a href="https://wa.me/yourwhatsapplink" target="_blank"><img src="{{ url_for('static', filename='assets/icons/whatsapp.png') }}" alt="WhatsApp Icon"></a>
+                </div>
+                <p>Email: curmassociation@gmail.com</p>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <span class="copyright">
+                &copy; 2025 CURMA - Central University of Rajasthan Malayali Association. All Rights Reserved.
+            </span>
+            <span class="footer-extra">
+                Contact: curma.curaj@gmail.com | Hosted by CURMA Web Team
+            </span>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
