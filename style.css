@@ -574,3 +574,24 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1px; /* Reduced gap */
+}
+
+.logo img {
+  height: 80px; /* Reduced logo height */
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 1.8rem; /* Reduced logo text size */
+  margin: 0;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 0.9rem; /* Reduced logo subtitle size */
+  opacity: 0.8; /* Slightly reduced opacity */
+}
