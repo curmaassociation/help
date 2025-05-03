@@ -10,20 +10,28 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+    <div class="container"> <!-- Use consistent container class -->
+        <div class="logo">
             <img src="logo.png" alt="CURMA Logo" id="logo">
-            <h1>CURMA Association</h1>        
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+            <div>
+                <h1>CURMA Association</h1>
+                <p>Central University of Rajasthan</p>
+            </div>
         </div>
-    </header>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <main>
         <section class="helpdesk">
@@ -63,9 +71,10 @@
                         <p>The university is located on the Jaipur-Ajmer Expressway (NH-8), approximately 83 kilometers from Jaipur and 40 kilometers from Ajmer. The campus spans more than 209 hectares (518 acres) of land with state-of-the-art infrastructure.</p>
                         <p>CURAJ follows the semester system and has adopted the Choice Based Credit System (CBCS) as per UGC guidelines. The university emphasizes interdisciplinary research and innovation.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="CURAJ.jpg" alt="CURAJ Campus" class="featured-image">
-                    </div>
+                    <figure class="about-image">
+                        <img src="CURAJ.jpg" alt="Aerial view of CURAJ campus" class="featured-image">
+                        <figcaption>CURAJ Main Campus</figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
