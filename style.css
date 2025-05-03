@@ -308,11 +308,15 @@ nav a:hover::after {
 }
 
 .about-image {
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
 }
 
 .featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 8px;
     box-shadow: var(--shadow-hover);
 }
