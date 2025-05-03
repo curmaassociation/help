@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURMA Association - Website Under Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ================ 
+           GLOBAL STYLES
+           ================ */
+        :root {
+            /* Color Variables */
+            --primary-color: #003366;
+            --secondary-color: #e63946;
+            --accent-color: #f4a261;
+            --light-color: #ADD8E6;
+            --dark-color: #1d3557;
+            --text-color: #333;
+            --text-light: #777;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            
+            /* Effect Variables */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ================
+           LAYOUT & UTILITY
+           ================ */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-block {
+            padding: 4rem 0;
+            flex: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2.2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 1rem auto;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* ================
+           UNDER CONSTRUCTION
+           ================ */
+        .construction-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 70vh;
+        }
+
+        .construction-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 500px;
+            height: 20px;
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 65%;
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '65%';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* ================
+           FOOTER
+           ================ */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-media a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-media a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* ================
+           RESPONSIVE STYLES
+           ================ */
+        @media (max-width: 768px) {
+            .section-block {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .construction-icon {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="CURMA Logo" id="logo">
+                <div>
+                    <h1>CURMA Association</h1>
+                    <p>Central University of Rajasthan</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-block">
+            <div class="container">
+                <div class="construction-content">
+                    <div class="construction-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2 class="section-title">Website Under Construction</h2>
+                    <div class="card">
+                        <p>We're working hard to bring you an amazing experience. Our website will be launching soon with all the features and information you need.</p>
+                        
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        
+                        <p>In the meantime, you can contact us at:</p>
+                        <p><strong>Email:</strong> curma.curaj@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="mailto:curma.curaj@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/curma_curaj" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/curmacuraj" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/yourwhatsapplink" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2023 CURMA - Central University of Rajasthan Malayali Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const progress = document.querySelector('.progress');
+            let width = 65;
+            const interval = setInterval(() => {
+                width += Math.random() * 2;
+                if (width >= 100) {
+                    width = 100;
+                    clearInterval(interval);
+                }
+                progress.style.width = width + '%';
+                progress.setAttribute('data-progress', Math.floor(width) + '%');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
