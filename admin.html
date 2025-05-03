@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURMA Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Using your existing CSS variables */
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e63946;
+            --accent-color: #f4a261;
+            --light-color: #ADD8E6;
+            --dark-color: #1d3557;
+            --text-color: #333;
+            --text-light: #777;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-block {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 1rem auto;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 51, 102, 0.05);
+        }
+
+        tr:hover {
+            background-color: rgba(0, 51, 102, 0.1);
+        }
+
+        input[type="text"], 
+        input[type="number"], 
+        input[type="email"], 
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-weight: 600;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            display: block;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-submit:hover {
+            background-color: #c1121f;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-edit {
+            background-color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-add {
+            background-color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .school-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .school-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .departments {
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .dept-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .dept-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="CURMA Logo" style="height: 60px;">
+                <h1>CURMA Admin Panel</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-block">
+            <div class="container">
+                <h2 class="section-title">Association Management</h2>
+                
+                <div class="card">
+                    <h3>Executive Committee</h3>
+                    <button class="btn btn-add" onclick="addCommitteeMember()">
+                        <i class="fas fa-plus"></i> Add Member
+                    </button>
+                    <table id="committeeTable">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" value="President"></td>
+                                <td><input type="text" value="John Doe"></td>
+                                <td><input type="tel" value="9876543210"></td>
+                                <td><input type="email" value="president@curma.org"></td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                                    <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="Secretary"></td>
+                                <td><input type="text" value="Jane Smith"></td>
+                                <td><input type="tel" value="8765432109"></td>
+                                <td><input type="email" value="secretary@curma.org"></td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                                    <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="Treasurer"></td>
+                                <td><input type="text" value="Robert Johnson"></td>
+                                <td><input type="tel" value="7654321098"></td>
+                                <td><input type="email" value="treasurer@curma.org"></td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                                    <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Additional members can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block bg-light">
+            <div class="container">
+                <h2 class="section-title">School & Department Information</h2>
+                
+                <div class="card">
+                    <h3>Department Details</h3>
+                    <button class="btn btn-add" onclick="addDepartment()">
+                        <i class="fas fa-plus"></i> Add Department
+                    </button>
+                    <table id="departmentTable">
+                        <thead>
+                            <tr>
+                                <th>School</th>
+                                <th>Department</th>
+                                <th>Helpdesk</th>
+                                <th>Fees (₹)</th>
+                                <th>Cutoff (%)</th>
+                                <th>Intake</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select>
+                                        <option>School of Architecture</option>
+                                        <option selected>School of Chemical Sciences & Pharmacy</option>
+                                        <option>School of Commerce and Management</option>
+                                        <!-- Other schools -->
+                                    </select>
+                                </td>
+                                <td><input type="text" value="Chemistry"></td>
+                                <td><input type="tel" value="9876543210"></td>
+                                <td><input type="number" value="15000"></td>
+                                <td><input type="number" value="75.5" step="0.1"></td>
+                                <td><input type="number" value="60"></td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                                    <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select>
+                                        <option>School of Architecture</option>
+                                        <option>School of Chemical Sciences & Pharmacy</option>
+                                        <option selected>School of Commerce and Management</option>
+                                        <!-- Other schools -->
+                                    </select>
+                                </td>
+                                <td><input type="text" value="Department of Management"></td>
+                                <td><input type="tel" value="8765432109"></td>
+                                <td><input type="number" value="18000"></td>
+                                <td><input type="number" value="78.0" step="0.1"></td>
+                                <td><input type="number" value="120"></td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                                    <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Additional departments can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="departments" class="section-block bg-light">
+            <div class="container">
+                <h2 class="section-title">Schools & Departments</h2>
+                
+                <div class="schools-container">
+                    <!-- School 1 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Architecture</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Architecture</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 2 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Chemical Sciences & Pharmacy</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Chemistry</button>
+                            <button class="dept-btn">Pharmacy</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 3 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Commerce and Management</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Commerce</button>
+                            <button class="dept-btn">Department of Management</button>
+                            <button class="dept-btn">Department of Hotel and Tourism Management</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 4 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Engineering & Technology</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Computer Science & Engineering</button>
+                            <button class="dept-btn">Department of Electronics and Communication Engineering(ECE)</button>
+                            <button class="dept-btn">Department of Biomedical Engineering</button>
+                            <button class="dept-btn">Department of Vocational Studies and Skill Development</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 5 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Life Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Biochemistry</button>
+                            <button class="dept-btn">Department of Biotechnology</button>
+                            <button class="dept-btn">Department of Microbiology</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 6 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Earth Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Atmospheric Science</button>
+                            <button class="dept-btn">Department of Environmental Science</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 7 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Humanities and Languages</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of English</button>
+                            <button class="dept-btn">Department of Hindi</button>
+                            <button class="dept-btn">Department of Linguistics</button>
+                        </div>
+                    </div>
+                    
+                    <!-- School 8 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Mathematics, Statistics and Computational Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Computer Science</button>
+                            <button class="dept-btn">Department of Data Science & Analytics</button>
+                            <button class="dept-btn">Department of Mathematics</button>
+                            <button class="dept-btn">Department of Statistics</button>
+                        </div>
+                    </div>
+
+                    <!-- School 9 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Social Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Economics</button>
+                            <button class="dept-btn">Department of Culture & Media Studies</button>
+                            <button class="dept-btn">Department of Public Policy, Law and Governance</button>
+                            <button class="dept-btn">Department of Social work</button>
+                            <button class="dept-btn">Department of Society - Technology Interface</button>
+                        </div>
+                    </div>
+
+                    <!-- School 10 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Sports Sciences, Yoga and Education</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Sports Bio-Sciences</button>
+                            <button class="dept-btn">Department of Sports Biomechanics</button>
+                            <button class="dept-btn">Department of Sports Psychology</button>
+                            <button class="dept-btn">Department of Education</button>
+                            <button class="dept-btn">Department of Yoga</button>
+                        </div>
+                    </div>
+
+                    <!-- School 11 -->
+                    <div class="school-card">
+                        <h3 class="school-header">School of Physical Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Physics</button>
+                        </div>
+                    </div>
+
+                    <!-- School 12 -->
+                    <div class="school-card">
+                        <h3 class="school-header">Interdisciplinary School of Health Sciences</h3>
+                        <div class="departments">
+                            <button class="dept-btn">Department of Health Sciences</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="container">
+                <button class="btn btn-submit" onclick="submitData()">
+                    <i class="fas fa-paper-plane"></i> Submit All Changes
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CURMA - Central University of Rajasthan Malayali Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to add new committee member
+        function addCommitteeMember() {
+            const table = document.getElementById('committeeTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            
+            newRow.innerHTML = `
+                <td><input type="text" placeholder="Position"></td>
+                <td><input type="text" placeholder="Name"></td>
+                <td><input type="tel" placeholder="Contact Number"></td>
+                <td><input type="email" placeholder="Email"></td>
+                <td class="action-btns">
+                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                    <button class="btn btn-delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+                </td>
+            `;
+        }
+
+        // Function to add new department
+        function addDepartment() {
+            const table = document.getElementById('departmentTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            
+            newRow.innerHTML = `
+                <td>
+                    <select>
+                        <option>School of Architecture</option>
+                        <option>School of Chemical Sciences & Pharmacy</option>
+                        <option>School of Commerce and Management</option>
+                        <option>School of Engineering & Technology</option>
+                        <option>School of Life Sciences</option>
+                        <option>School of Earth Sciences</option>
+                        <option>School of Humanities and Languages</option>
+                        <option>School of Mathematics, Statistics and Computational Sciences</option>
+                        <option>School of Social Sciences</option>
+                        <option>School of Sports Sciences, Yoga and Education</option>
+                        <option>School of Physical Sciences</option>
+                        <option>Interdisciplinary School of Health Sciences</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Department Name"></td>
+                <td><input type="tel" placeholder="Helpdesk Number"></td>
+                <td><input type="number" placeholder="Fees"></td>
+                <td><input type="number" placeholder="Cutoff" step="0.1"></td>
+                <td><input type="number" placeholder="Intake"></td>
+                <td class="action-btns">
+                    <button class="btn btn-edit"><i class="fas fa-save"></i></button>
+                    <button class="btn btn-delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+                </td>
+            `;
+        }
+
+        // Function to delete a row
+        function deleteRow(btn) {
+            const row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        // Function to submit all data
+        function submitData() {
+            // Collect committee data
+            const committeeData = [];
+            const committeeRows = document.querySelectorAll('#committeeTable tbody tr');
+            
+            committeeRows.forEach(row => {
+                const inputs = row.querySelectorAll('input');
+                committeeData.push({
+                    position: inputs[0].value,
+                    name: inputs[1].value,
+                    contact: inputs[2].value,
+                    email: inputs[3].value
+                });
+            });
+
+            // Collect department data
+            const departmentData = [];
+            const departmentRows = document.querySelectorAll('#departmentTable tbody tr');
+            
+            departmentRows.forEach(row => {
+                const select = row.querySelector('select');
+                const inputs = row.querySelectorAll('input');
+                departmentData.push({
+                    school: select.options[select.selectedIndex].text,
+                    department: inputs[0].value,
+                    helpdesk: inputs[1].value,
+                    fees: inputs[2].value,
+                    cutoff: inputs[3].value,
+                    intake: inputs[4].value
+                });
+            });
+
+            // Here you would typically send this data to a server
+            console.log("Committee Data:", committeeData);
+            console.log("Department Data:", departmentData);
+            
+            // For demonstration, we'll just show an alert
+            alert('Data submitted successfully!\n\nCommittee Members: ' + committeeData.length + 
+                  '\nDepartments: ' + departmentData.length);
+            
+            // In a real application, you would redirect to another page with this data
+            // window.location.href = 'summary.html?data=' + encodeURIComponent(JSON.stringify({committeeData, departmentData}));
+        }
+
+        // Add event listeners for edit/save buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn-edit') || 
+                    e.target.parentElement.classList.contains('btn-edit')) {
+                    const btn = e.target.classList.contains('btn-edit') ? e.target : e.target.parentElement;
+                    alert('Changes saved!');
+                    // In a real app, you would save to database here
+                }
+            });
+        });
+    </script>
+</body>
+</html>
