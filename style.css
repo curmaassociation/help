@@ -631,3 +631,81 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Department Details Section */
+.school-details {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.school-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.department-info {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.department-info h4 {
+    color: #2980b9;
+    margin-bottom: 1rem;
+}
+
+.dept-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.dept-contact, .dept-academics {
+    flex: 1;
+    min-width: 250px;
+}
+
+.dept-contact p, .dept-academics p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.dept-contact a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.dept-contact a:hover {
+    text-decoration: underline;
+}
+
+.general-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #e8f4fc;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.general-info h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.general-info p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .dept-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
