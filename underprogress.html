@@ -47,6 +47,31 @@
             flex-direction: column;
         }
 
+        /* Logo Styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .logo p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+
         /* ================
            LAYOUT & UTILITY
            ================ */
@@ -199,16 +224,30 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="CURMA Logo" id="logo">
-                <div>
-                    <h1>CURMA Association</h1>
-                    <p>Central University of Rajasthan</p>
-                </div>
+    <div class="container"> <!-- Use consistent container class -->
+        <div class="logo">
+            <img src="logo.png" alt="CURMA Logo" id="logo">
+            <div>
+                <h1>CURMA Association</h1>
+                <p>Central University of Rajasthan</p>
             </div>
         </div>
-    </header>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="underprogress.html">Home</a></li>
+                <li><a href="underprogress.html">About Us</a></li>
+                <li><a href="underprogress.html">Events</a></li>
+                <li><a href="underprogress.html">Gallery</a></li>
+                <li><a href="underprogress.html">Contact</a></li>
+                <li><a href="#">Helpdesk</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 
     <main>
         <section class="section-block">
